@@ -1,4 +1,4 @@
-const Player = require('../models/playersdb');  // Le modèle des joueurs
+const Player = require('../lib/playersdb');  // Le modèle des joueurs
 const fs = require('fs');
 const path = require('path');
 const { cmd } = require('../command');
