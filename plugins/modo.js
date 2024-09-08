@@ -7,7 +7,7 @@ cmd({
     category: "basics",
     filename: __filename,
 },
-async (conn, mek, m, { from, reply, IsOwner }) => {
+async (conn, mek, m, { from, reply, isOwner }) => {
     const modoText = `
 *🎮 MODO-PAVE🔶*
 *═════════════════*
