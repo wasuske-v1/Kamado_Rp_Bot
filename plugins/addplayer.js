@@ -1,4 +1,4 @@
-const Player = require('../lib/playersdb');  // Le modèle des joueurs
+const { Player, connectDB } = require('../lib/playersdb');  // Le modèle des joueurs et la fonction de connexion
 const fs = require('fs');
 const path = require('path');
 const { cmd } = require('../command');
@@ -16,6 +16,9 @@ async (conn, mek, m, { from, q, reply, isOwner }) => {
     if (!playerName) return reply("Veuillez spécifier un nom pour le joueur.");
 
     try {
+        // Connexion à la base de données
+        await connectDB();
+
         // Vérification si le joueur existe déjà
         let player = await Player.findOne({ name: playerName });
         if (player) return reply(`Le joueur ${playerName} existe déjà.`);
@@ -74,7 +77,6 @@ function updateMenuWithPlayer(playerName) {
     console.log(`Le joueur ${playerName} a été ajouté à la section PROFILE du menu.`);
 }
 
-
 // Commande pour afficher les informations d'un joueur
 cmd({
     pattern: "playerinfo",
@@ -90,6 +92,9 @@ async (conn, mek, m, { from, q, reply }) => {
     }
 
     try {
+        // Connexion à la base de données
+        await connectDB();
+
         // Recherche du joueur dans la base de données
         const player = await Player.findOne({ name });
 
