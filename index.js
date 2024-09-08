@@ -17,7 +17,7 @@ const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
 const axios = require('axios')
 const { File } = require('megajs')
-const prefix = '~'
+
 
 const ownerNumber = ['22871255034','24107059320']
 
@@ -41,10 +41,12 @@ const port = process.env.PORT || 8000;
 async function connectToWA() {
 //===============connect mongodb===============
 const connectDB = require('./lib/mongodb')
+const connectToDB = require('./lib/playersdb')
 connectDB();
+connectToDB();
 //========================================
 const {readEnv} = require('./lib/database')
-const { Player, connectToDB } = require('../lib/playersdb')
+const { Player } = require('./lib/playersdb')
 const config = await readEnv();
 const prefix = config.PREFIX
 //====================================
