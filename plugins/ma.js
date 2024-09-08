@@ -7,7 +7,7 @@ cmd({
     category: "basics",
     filename: __filename,
 },
-async (conn, mek, m, { from, reply }) => {
+async (conn, mek, m, { from, reply, isOwner }) => {
     const maText = `
 *🎮 MA-FIGHTING🔶*
 *═════════════════*
