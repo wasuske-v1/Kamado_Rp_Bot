@@ -1,56 +1,79 @@
+const Player = require('../models/playersdb');  // Le modèle des joueurs
+const fs = require('fs');
+const path = require('path');
 const { cmd } = require('../command');
-const Player = require('../lib/playersdb'); // Importer le modèle de base de données des joueurs
 
-// Commande pour créer un nouveau joueur
 cmd({
     pattern: "addplayer",
-    alias: ["createplayer"],
-    desc: "Ajoute un nouveau joueur avec ses informations",
+    desc: "Ajouter un nouveau joueur",
     category: "basic",
     filename: __filename,
 },
 async (conn, mek, m, { from, q, reply, isOwner }) => {
-    if (!isOwner) return reply("❌ *Seul le propriétaire peut ajouter des joueurs.*");
+    if (!isOwner) return reply("Vous n'avez pas la permission d'utiliser cette commande.");
 
-    // Extraction des informations du joueur à partir de la commande
-    const args = q.split(",");
-    if (args.length < 2) {
-        return reply("❗ *Veuillez fournir le nom du joueur et son grade.*\nExemple: .addplayer John Doe, Novice");
-    }
-
-    const [name, grade] = args.map(arg => arg.trim());
+    const playerName = q.trim();
+    if (!playerName) return reply("Veuillez spécifier un nom pour le joueur.");
 
     try {
         // Vérification si le joueur existe déjà
-        const existingPlayer = await Player.findOne({ name });
-        if (existingPlayer) {
-            return reply(`⚠️ *Le joueur ${name} existe déjà.*`);
-        }
+        let player = await Player.findOne({ name: playerName });
+        if (player) return reply(`Le joueur ${playerName} existe déjà.`);
 
-        // Création du nouveau joueur avec les valeurs par défaut
-        const newPlayer = new Player({
-            name,
-            grade,
-            level: 1, // Le joueur commence au niveau 1
-            title: 'Aventurier',
-            card: 'Standard',
-            stuff: 'Basic',
-            pocket: [],
-            plays: 0,
-            wins: 0,
-            losses: 0,
-            draws: 0,
-            exp: 0,
-            avatar: 'https://default-avatar-url.jpg', // URL de l'image par défaut
-        });
+        // Création d'un nouveau joueur
+        player = new Player({ name: playerName });
+        await player.save();
 
-        await newPlayer.save();
-        reply(`✅ *Le joueur ${name} a été ajouté avec succès.*`);
+        // Création du fichier du joueur dans le répertoire 'players'
+        const playerFilePath = path.join(__dirname, '../players', `${playerName}.json`);
+        const playerData = {
+            name: player.name,
+            level: player.level,
+            grade: player.grade,
+            title: player.title,
+            card: player.card,
+            stuff: player.stuff,
+            pocket: player.pocket,
+            plays: player.plays,
+            wins: player.wins,
+            losses: player.losses,
+            draws: player.draws,
+            exp: player.exp,
+            avatar: player.avatar
+        };
+
+        // Sauvegarde des données dans un fichier JSON
+        fs.writeFileSync(playerFilePath, JSON.stringify(playerData, null, 2));
+        reply(`Le joueur ${playerName} a été ajouté et son fichier a été créé.`);
+
+        // Mise à jour du menu pour inclure le joueur dans la section PROFILE
+        updateMenuWithPlayer(playerName);
+
     } catch (error) {
-        console.error(error.message);
-        reply(`❌ *Erreur lors de l'ajout du joueur.*\n${error.message}`);
+        console.error(error);
+        reply("Erreur lors de l'ajout du joueur.");
     }
 });
+
+// Fonction pour mettre à jour le menu avec le nouveau joueur
+function updateMenuWithPlayer(playerName) {
+    const menuFilePath = path.join(__dirname, '../menu.js');
+
+    // Lecture du fichier menu.js
+    let menuContent = fs.readFileSync(menuFilePath, 'utf-8');
+
+    // Recherche de l'endroit où ajouter le joueur dans la catégorie PROFILE
+    const profileSectionMarker = '┌ 👤 *PROFILE*  👤';
+    const profileEndMarker = '╰━━━━━━━━━━━━❒';
+
+    // Ajout du joueur avant la fin de la section PROFILE
+    const updatedMenuContent = menuContent.replace(profileEndMarker, ` │${playerName}👥\n${profileEndMarker}`);
+
+    // Sauvegarde des modifications dans menu.js
+    fs.writeFileSync(menuFilePath, updatedMenuContent, 'utf-8');
+    console.log(`Le joueur ${playerName} a été ajouté à la section PROFILE du menu.`);
+}
+
 
 // Commande pour afficher les informations d'un joueur
 cmd({
