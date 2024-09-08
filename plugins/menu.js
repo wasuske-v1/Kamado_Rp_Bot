@@ -4,7 +4,7 @@ const { cmd, commands } = require('../command');
 cmd({
     pattern: "menu",
     desc: "get cmd list",
-    category: "basic",
+    category: "basics",
     filename: __filename
 },
 async (conn, mek, m, { from, quoted, pushname, reply }) => {
