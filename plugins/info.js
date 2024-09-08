@@ -21,7 +21,7 @@ async (conn, mek, m, { from, reply, isOwner }) => {
     try {
         // Envoi du message avec l'image
         return await conn.sendMessage(from, { 
-            image: { url: config.INFO_IMG }, 
+            image: { imageUrl: "https://telegra.ph/file/ad25b2227fa2a1a01b707.jpg" }, 
             caption: infoText 
         }, { quoted: mek });
     } catch (err) {
