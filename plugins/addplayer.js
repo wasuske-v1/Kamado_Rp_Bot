@@ -6,7 +6,7 @@ const { cmd } = require('../command');
 cmd({
     pattern: "addplayer",
     desc: "Ajouter un nouveau joueur",
-    category: "basic",
+    category: "basics",
     filename: __filename,
 },
 async (conn, mek, m, { from, q, reply, isOwner }) => {
@@ -80,7 +80,7 @@ cmd({
     pattern: "playerinfo",
     alias: ["profile"],
     desc: "Affiche les informations d'un joueur",
-    category: "basic",
+    category: "basics",
     filename: __filename,
 },
 async (conn, mek, m, { from, q, reply }) => {
