@@ -1,4 +1,4 @@
-const { Player, connectDB } = require('../lib/playersdb');  // Le modèle des joueurs et la fonction de connexion
+const { Player, connectToDB } = require('../lib/playersdb');  // Le modèle des joueurs et la fonction de connexion
 const fs = require('fs');
 const path = require('path');
 const { cmd } = require('../command');
@@ -93,7 +93,7 @@ async (conn, mek, m, { from, q, reply }) => {
 
     try {
         // Connexion à la base de données
-        await connectDB();
+        await connectToDB();
 
         // Recherche du joueur dans la base de données
         const player = await Player.findOne({ name });
