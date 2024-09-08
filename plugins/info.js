@@ -18,10 +18,12 @@ async (conn, mek, m, { from, reply, isOwner }) => {
    *🔶LAUREAT-GAMING🎮*
 `;
 
+    const imageUrl = 'https://telegra.ph/file/ad25b2227fa2a1a01b707.jpg'; // Remplace par ton image ou config.ALIVE_IMG
+
     try {
-        // Envoi du message avec l'image
-        return await conn.sendMessage(from, { 
-            image: { imageUrl: "https://telegra.ph/file/ad25b2227fa2a1a01b707.jpg" }, 
+        // Envoi de l'image avec la légende
+        return await conn.sendMessage(from, {
+            image: { url: imageUrl },  // Utilisation de l'URL de l'image 
             caption: infoText 
         }, { quoted: mek });
     } catch (err) {
