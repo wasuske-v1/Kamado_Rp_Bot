@@ -44,6 +44,7 @@ const connectDB = require('./lib/mongodb')
 connectDB();
 //========================================
 const {readEnv} = require('./lib/database')
+const { Player, connectToDB } = require('../lib/playersdb')
 const config = await readEnv();
 const prefix = config.PREFIX
 //====================================
