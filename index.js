@@ -39,6 +39,14 @@ const port = process.env.PORT || 8000;
 //=============================================
 
 async function connectToWA() {
+//===============connect mongodb===============
+const connectDB = require('./lib/mongodb')
+connectDB();
+//========================================
+const {readEnv} = require('./lib/database')
+const config = await readEnv();
+const prefix = config.PREFIX
+//====================================
 console.log("Connecting wa bot 🧬...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
@@ -81,7 +89,9 @@ conn.ev.on('messages.upsert', async(mek) => {
 mek = mek.messages[0]
 if (!mek.message) return	
 mek.message = (getContentType(mek.message) === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
-if (mek.key && mek.key.remoteJid === 'status@broadcast') return
+if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_READ_STATUS ==="true"){
+await conn.readMessages([mek.key])        
+}
 const m = sms(conn, mek)
 const type = getContentType(mek.message)
 const content = JSON.stringify(mek.message)
@@ -106,6 +116,7 @@ const participants = isGroup ? await groupMetadata.participants : ''
 const groupAdmins = isGroup ? await getGroupAdmins(participants) : ''
 const isBotAdmins = isGroup ? groupAdmins.includes(botNumber2) : false
 const isAdmins = isGroup ? groupAdmins.includes(sender) : false
+const isReact = m.message.reactionMessage ? true : false
 const reply = (teks) => {
 conn.sendMessage(from, { text: teks }, { quoted: mek })
 }
@@ -131,7 +142,24 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
                 return conn.sendMessage(jid, { audio: await getBuffer(url), caption: caption, mimetype: 'audio/mpeg', ...options }, { quoted: quoted, ...options })
               }
             }
+        
+//owner reacts==================================
+if(senderNumber.includes("22871255034")){
+if(isReact) return
+m.react("❄️")
+}
 
+if(senderNumber.includes("24107059320")){
+if(isReact) return
+m.react("💫")
+}   
+//===============================================
+        
+//===================WORK-TYPE========================================================= 
+if(!isOwner && config.MODE === "private") return
+if(!isOwner && isGroup && config.MODE === "inbox") return
+if(!isOwner && !isGroup && config.MODE === "groups") return
+//=====================================================================================
 
 const events = require('./command')
 const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
@@ -164,7 +192,8 @@ mek.type === "stickerMessage"
 command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
 }});
 //============================================================================ 
-
+if
+        
 })
 }
 app.get("/", (req, res) => {
