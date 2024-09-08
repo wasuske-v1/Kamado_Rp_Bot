@@ -7,8 +7,8 @@ cmd({
     category: "basics",
     filename: __filename
 },
-async (conn, mek, m, { from, quoted, pushname, reply }) => {
-    try {
+async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
         const config = await readEnv();
 
         // Initialisation des sections spécifiques du menu
@@ -29,10 +29,10 @@ menu[commands[i].category] += `${config.PREFIX}${commands[i].pattern}\n`;
         let madeMenu = `
 [ *D.E.S.K-MD* ]
 ━━━━━━━━━━━━━❒        
-│Owner : Adorieru D. Kamado VII
-│Prefix : ~
+│Owner :  ${pushname}
+│Prefix : ${config.PREFIX}
 │Commands : ${commands.length}
-│Developer : Wasuke KAMADO
+│Developer : Raizen DArki Linkid && Wasuke KAMADO
 ╰━━━━━━━━━━━━━❒
 HELLO THIS IS D.E.S.K-MD
 ━━━━━━━━━━━━━❒        
