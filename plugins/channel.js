@@ -51,8 +51,8 @@ cmd({
                         buttons: [{
                             name: "cta_url",
                             buttonParamsJson: JSON.stringify({
-                                display_text: "↪JOIN", // Texte affiché sur le bouton
-                                url: "https://chat.whatsapp.com/IntF7YkXGMZHR9d8Xqz1wO", // URL du lien vers la chaîne WhatsApp
+                                display_text: "JOIN", // Texte affiché sur le bouton
+                                url: "https://chat.whatsapp.com/FgnA1ANKadWE9FXilOCiWq", // URL du lien vers la chaîne WhatsApp
                                 merchant_url: "https://chat.whatsapp.com" // URL de redirection
                             })
                         }]
