@@ -1,7 +1,7 @@
 const { cmd } = require('../command');
 
 cmd({
-    pattern: "join",
+    pattern: "channel",
     desc: "Envoyer un lien d'invitation de groupe avec aperçu et un message personnalisé",
     category: "basics",
     filename: __filename,
