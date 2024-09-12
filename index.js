@@ -20,7 +20,7 @@ const axios = require('axios')
 const { File } = require('megajs')
 
 
-const ownerNumber = ['22871255034','24107059320']
+const ownerNumber = ['22871255034','2416017386']
 
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
@@ -150,7 +150,7 @@ if(isReact) return
 m.react("❄️")
 }
 
-if(senderNumber.includes("24107059320")){
+if(senderNumber.includes("2416017386")){
 if(isReact) return
 m.react("💫")
 }   
