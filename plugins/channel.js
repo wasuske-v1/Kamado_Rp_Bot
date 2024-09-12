@@ -51,7 +51,7 @@ cmd({
                             name: "cta_url",
                             buttonParamsJson: JSON.stringify({
                                 display_text: "Join!",
-                                url: "https://chat.whatsapp.com/IntF7YkXGMZHR9d8Xqz1wO", // URL de redirection
+                                url: "https://chat.whatsapp.com/FgnA1ANKadWE9FXilOCiWq", // URL de redirection
                                 merchant_url: "https://chat.whatsapp.com"
                             })
                         }]
