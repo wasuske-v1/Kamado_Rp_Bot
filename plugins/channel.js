@@ -7,7 +7,7 @@ cmd({
     filename: __filename,
 }, async (conn, mek, m, { from, reply }) => {
 
-    const groupLink = "https://chat.whatsapp.com/IntF7YkXGMZHR9d8Xqz1wO"; // Lien d'invitation WhatsApp
+    const groupLink = "https://whatsapp.com/channel/0029Vajj9lcGU3BEq2onzc2e"; // Lien d'invitation WhatsApp
     const messageText = `
 🔶 *LAUREAT'S CHANNEL📺*
 _________
@@ -16,7 +16,7 @@ _________
 Bien évidemment, nous sommes ouverts au monde extérieur également. Que ce soit RP ou pas, tout va figurer ici.
 Je ne vous en dirai pas plus, alors accrochez-vous pour en découvrir plus ❗
 
-🔗 Rejoignez-nous ici : ${groupLink}
+Suivre la chaîne 🔶️LAUREAT TV📰 sur WhatsApp: ${groupLink}
 
 _________
 @starkproduction🔸
