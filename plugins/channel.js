@@ -52,7 +52,7 @@ cmd({
                             buttonParamsJson: JSON.stringify({
                                 display_text: "Join!",
                                 url: "https://chat.whatsapp.com/IntF7YkXGMZHR9d8Xqz1wO", // URL de redirection
-                                merchant_url: "https://chat.whatsapp.com/IntF7YkXGMZHR9d8Xqz1wO"
+                                merchant_url: "https://chat.whatsapp.com"
                             })
                         }]
                     })
