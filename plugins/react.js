@@ -3,7 +3,7 @@ const { cmd } = require('../command');
 cmd({
     pattern: /^(profile|basics)/i, // Réagit aux commandes dans les catégories 'profile' et 'basics'
     desc: "Commandes de profil et de base",
-    category: "custom", // Catégorie personnalisée pour cette commande
+    category: "basics", // Catégorie personnalisée pour cette commande
     filename: __filename,
 }, async (conn, mek, m, { from, reply, category, isReact }) => {
 
