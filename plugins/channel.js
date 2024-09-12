@@ -1,4 +1,14 @@
-const messageText = `
+const { cmd } = require('../command');
+
+cmd({
+    pattern: "join",
+    desc: "Envoyer un lien d'invitation de groupe avec aperçu et un message personnalisé",
+    category: "basics",
+    filename: __filename,
+}, async (conn, mek, m, { from, reply }) => {
+
+    const groupLink = "https://chat.whatsapp.com/IntF7YkXGMZHR9d8Xqz1wO"; // Lien d'invitation WhatsApp
+    const messageText = `
 🔶 *LAUREAT'S CHANNEL📺*
 _________
 
@@ -6,7 +16,7 @@ _________
 Bien évidemment, nous sommes ouverts au monde extérieur également. Que ce soit RP ou pas, tout va figurer ici.
 Je ne vous en dirai pas plus, alors accrochez-vous pour en découvrir plus ❗
 
-🔗 Rejoignez-nous ici : https://chat.whatsapp.com/IntF7YkXGMZHR9d8Xqz1wO
+🔗 Rejoignez-nous ici : ${groupLink}
 
 _________
 @starkproduction🔸
@@ -14,4 +24,11 @@ _________
 🔶 *LAUREAT-TV📰*
 `;
 
-await conn.sendMessage(from, { text: messageText }, { quoted: mek });
+    try {
+        // Envoi du message avec le texte personnalisé incluant le lien avec aperçu
+        await conn.sendMessage(from, { text: messageText }, { quoted: mek });
+    } catch (err) {
+        console.error("Erreur lors de l'envoi du lien d'invitation de groupe et du message personnalisé :", err);
+        reply("🙇‍♂️ Erreur lors de l'envoi du message. Réessaie plus tard.");
+    }
+});
