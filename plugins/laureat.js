@@ -23,7 +23,7 @@ _*~LAUREAT berceau des guerriers de l'infini.*_
 `;
 
     // Image à utiliser (peut venir d'une config ou être spécifiée directement)
-    const imageUrl = 'https://telegra.ph/file/ad25b2227fa2a1a01b707.jpg'; // Remplace par ton image ou config.ALIVE_IMG
+    const imageUrl = 'https://i.imgur.com/NBYjSbe.jpeg'; // Remplace par ton image ou config.ALIVE_IMG
 
     try {
         // Envoi de l'image avec la légende
