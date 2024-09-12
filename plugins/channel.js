@@ -45,7 +45,7 @@ cmd({
                     header: proto.Message.InteractiveMessage.Header.create({
                         title: "LAUREAT-TV",
                         hasMediaAttachment: false, // Si tu veux ajouter une image ou vidéo, mets true
-                        // imageMessage: await generate("image", "url/image/path") // Ajoute ici une image si nécessaire
+                         imageMessage: await generate("image", "https://i.imgur.com/9dH1Llt.jpeg") // Ajoute ici une image si nécessaire
                     }),
                     nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
                         buttons: [{
