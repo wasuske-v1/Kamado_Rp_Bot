@@ -1,5 +1,3 @@
-
-const { proto, generateWAMessageFromContent, generateWAMessageContent } = require('@whiskeysockets/baileys');
 const { cmd } = require('../command');
 
 cmd({
@@ -8,74 +6,40 @@ cmd({
     category: "basics",
     filename: __filename,
 }, async (conn, mek, m, { from, reply }) => {
-    
-    const generate = async (type, url) => {
-        const generated = await generateWAMessageContent({
-            [type]: { url }
-        }, {
-            upload: conn.waUploadToServer
-        });
-        return generated[`${type}Message`];
-    };
 
-    const msg = generateWAMessageFromContent(m.key.remoteJid, {
-        viewOnceMessage: {
-            message: {
-                messageContextInfo: {
-                    deviceListMetadata: {},
-                    deviceListMetadataVersion: 2
-                },
-                interactiveMessage: proto.Message.InteractiveMessage.create({
-                    body: proto.Message.InteractiveMessage.Body.create({
-                        text: `
-                        *🔶 LAUREAT'S CHANNEL📺*
-                        *_________*
-                        
-                        *👤Welcoming : Bien le bonjour, bonsoir, bonne nuit. Nous vous souhaitons la bienvenue dans la chaîne de LAUREAT, 🔶LAUREAT-TV📰. Installez-vous et suivez nos de très belles actualités sur le royaume de 🔶LAUREAT🎮 ainsi que les guerriers de la 🔶W.I.N🎮, << WARRIOR INFINITA NATION >>.*
-                        *Bien évidement nous n'allons pas nous limiter à notre RP, au contraire nous sommes ouverts au monde extérieur également. Que ce soit RP ou pas, tout va figurer ici.*
-                        *Je ne vous en dirai pas plus, alors accrochez-vous pour en découvrir plus ❗*
-                        *_________*
-                        *@starkproduction🔸*
-                        *_________*
-                               *🔶 LAUREAT-TV📰*
-                        `
-                    }),
-                    footer: proto.Message.InteractiveMessage.Footer.create({
-                        text: "LAUREAT-TV - Suivez-nous pour plus d'informations !"
-                    }),
-                    header: proto.Message.InteractiveMessage.Header.create({
-                        title: "LAUREAT-TV",
-                        hasMediaAttachment: true, // Si tu veux ajouter une image ou vidéo
-                        imageMessage: await generate("image", "https://i.imgur.com/NBYjSbe.jpeg"), // Mets ici le chemin ou URL de l'image
-                    }),
-                    nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
-                        buttons: [{
-                            name: "quick_reply",
-                            buttonParamsJson: JSON.stringify({
-                                display_text: "Bouton Menu", // Texte affiché sur le bouton
-                                id: "~menu" // Commande exécutée lorsque le bouton est cliqué
-                            })
-                        },{
-                            name: "cta_url",
-                            buttonParamsJson: JSON.stringify({
-                                display_text: "Join !",
-                                url: "https://chat.whatsapp.com/FgnA1ANKadWE9FXilOCiWq", // URL de redirection
-                                merchant_url: "https://chat.whatsapp.com"
-                            })
-                        }]
-                    })
-                })
-            }
-        }
-    }, {});
+    const channelText = `
+🔶 *LAUREAT'S CHANNEL📺*
+_________
+
+👤 *Welcoming :* Bien le bonjour, bonsoir, bonne nuit. Nous vous souhaitons la bienvenue dans la chaîne de LAUREAT, 🔶LAUREAT-TV📰. Installez-vous et suivez nos belles actualités sur le royaume de 🔶LAUREAT🎮 ainsi que les guerriers de la 🔶W.I.N🎮 (WARRIOR INFINITA NATION).
+Bien évidemment, nous sommes ouverts au monde extérieur également. Que ce soit RP ou pas, tout va figurer ici.
+Je ne vous en dirai pas plus, alors accrochez-vous pour en découvrir plus ❗
+
+_________
+@starkproduction🔸
+_________
+🔶 *LAUREAT-TV📰*
+`;
+
+    const link = "https://chat.whatsapp.com/FgnA1ANKadWE9FXilOCiWq"; // Le lien à inclure pour l'aperçu
 
     try {
-        // Envoi du message interactif avec les boutons
-        await conn.relayMessage(msg.key.remoteJid, msg.message, {
-            messageId: msg.key.id
-        });
+        // Envoi du message formaté avec l'aperçu du lien mais sans afficher le lien dans le texte
+        await conn.sendMessage(from, {
+            text: channelText,
+            contextInfo: { 
+                externalAdReply: {
+                    title: "Rejoignez la chaîne LAUREAT-TV", // Titre de l'aperçu
+                    body: "Cliquez ici pour rejoindre", // Description
+                    previewType: "LINK",
+                    // thumbnailUrl: "URL_de_votre_image_de_prévisualisation", // Optionnel, mettre l'URL d'une image si besoin
+                    mediaType: 1,
+                    mediaUrl: link // Le lien sera caché mais avec un aperçu visible
+                }
+            }
+        }, { quoted: mek });
     } catch (err) {
-        console.error("Erreur lors de l'envoi du message interactif :", err);
-        reply("🙇‍♂️ Erreur lors de l'envoi du message interactif. Réessaie plus tard.");
+        console.error("Erreur lors de l'envoi du message du canal LAUREAT:", err);
+        reply("🙇‍♂️ Erreur lors de l'envoi du message. Réessaie plus tard.");
     }
 });
