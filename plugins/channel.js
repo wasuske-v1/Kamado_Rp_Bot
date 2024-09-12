@@ -27,7 +27,8 @@ cmd({
                 },
                 interactiveMessage: proto.Message.InteractiveMessage.create({
                     body: proto.Message.InteractiveMessage.Body.create({
-                        text: `*🔶 LAUREAT'S CHANNEL📺*
+                        text: `
+                        *🔶 LAUREAT'S CHANNEL📺*
                         *_________*
                         
                         *👤Welcoming : Bien le bonjour, bonsoir, bonne nuit. Nous vous souhaitons la bienvenue dans la chaîne de LAUREAT, 🔶LAUREAT-TV📰. Installez-vous et suivez nos de très belles actualités sur le royaume de 🔶LAUREAT🎮 ainsi que les guerriers de la 🔶W.I.N🎮, << WARRIOR INFINITA NATION >>.*
@@ -36,7 +37,8 @@ cmd({
                         *_________*
                         *@starkproduction🔸*
                         *_________*
-                               *🔶 LAUREAT-TV📰*`
+                               *🔶 LAUREAT-TV📰*
+                        `
                     }),
                     footer: proto.Message.InteractiveMessage.Footer.create({
                         text: "LAUREAT-TV - Suivez-nous pour plus d'informations !"
@@ -48,11 +50,17 @@ cmd({
                     }),
                     nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.create({
                         buttons: [{
+                            name: "quick_reply",
+                            buttonParamsJson: JSON.stringify({
+                                display_text: "Bouton Menu", // Texte affiché sur le bouton
+                                id: "~menu" // Commande exécutée lorsque le bouton est cliqué
+                            })
+                        },{
                             name: "cta_url",
                             buttonParamsJson: JSON.stringify({
-                                display_text: "Join!",
+                                display_text: "Join !",
                                 url: "https://chat.whatsapp.com/FgnA1ANKadWE9FXilOCiWq", // URL de redirection
-                                id: "Join Group"
+                                merchant_url: "https://chat.whatsapp.com"
                             })
                         }]
                     })
