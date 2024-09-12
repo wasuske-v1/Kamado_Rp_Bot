@@ -155,21 +155,7 @@ if(isReact) return
 m.react("💫")
 }   
 //catégorie reacts====================================
- if (category === 'profile') {
-        // Vérifier si c'est une réaction
-        if (isReact) {
-            // Réaction spécifique
-            m.react("👥");
-        }
- }
-
-    if (category === '!profile') {
-        // Vérifier si c'est une réaction
-        if (isReact) {
-            // Réaction spécifique
-            m.react("🔶");
-        }
-    }
+ 
 //===============================================
         
 //===================WORK-TYPE========================================================= 
