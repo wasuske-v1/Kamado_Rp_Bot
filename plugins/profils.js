@@ -188,6 +188,177 @@ const profils = {
     image: "https://i.imgur.com/GyYhc0X.jpeg" // Lien vers l'image de Kaiser
 },
 
+    "jean": {
+    player: "BENOIT",
+    following: "jean",
+    level: 12,
+    grade: "Little Warrior",
+    title: "???",
+    card: "???",
+    stuff: "???",
+    pocket: "250.000🪙",
+    plays: 4,
+    wins: 0,
+    losses: 4,
+    draws: 0,
+    exp: "6.700 EXP",
+    image: "https://i.imgur.com/0jM2jfK.jpeg" // Lien vers l'image de Benoit
+},
+
+    "regulus": {
+    player: "SVAIN",
+    following: "regulus",
+    level: 22,
+    grade: "Little Warrior",
+    title: "???",
+    card: "???",
+    stuff: "Katana Kyojuro",
+    pocket: "500.000🪙",
+    plays: 10,
+    wins: 7,
+    losses: 3,
+    draws: 0,
+    exp: "13.100 EXP",
+    image: "https://i.imgur.com/rVi4YCp.jpeg" // Lien vers l'image de Svain
+},
+
+    "licht": {
+    player: "WADO",
+    following: "licht",  
+    level: 25,
+    grade: "Little Warrior",
+    title: "???",
+    card: "???",
+    stuff: "???",
+    pocket: "500.000🪙",
+    plays: 18,
+    wins: 11,
+    losses: 5,
+    draws: 2,
+    exp: "15.800 EXP",
+    image: "https://i.imgur.com/aScHiq0.jpeg" // Lien vers l'image de Wado
+},
+
+    "loneA": {
+    player: "ATLAS",
+    following: "loneA",
+    level: 29,
+    grade: "Little Warrior",
+    title: "???",
+    card: "???",
+    stuff: "???",
+    pocket: "500.000🪙",
+    plays: 33,
+    wins: 27,
+    losses: 6,
+    draws: 0,
+    exp: "19.500 EXP",
+    image: "https://i.imgur.com/8rWEXfT.jpeg" // Lien vers l'image de Atlas
+},
+
+    "vecta": {
+    player: "UCHIHA",
+    following: "vecta",
+    level: 24,
+    grade: "Little Warrior",
+    title: "Fier😌",
+    card: "???",
+    stuff: "Chaînes Kurapika",
+    pocket: "500.000🪙",
+    plays: 17,
+    wins: 2,
+    losses: 15,
+    draws: 0,
+    exp: "15.100 EXP",
+    image: "https://i.imgur.com/etko8Xt.jpeg" // Lien vers l'image de Uchiha
+},
+
+    "gremmy": {
+    player: "ODA",
+    following: "gremmy",
+    level: 30,
+    grade: "Little Warrior",
+    title: "Haineux🤬",
+    card: "???",
+    stuff: "???",
+    pocket: "500.000🪙",
+    plays: 35,
+    wins: 7,
+    losses: 27,
+    draws: 1,
+    exp: "20.500 EXP",
+    image: "https://i.imgur.com/BMqPTqb.jpeg" // Lien vers l'image de Oda
+},
+
+    "mob": {
+    player: "HELLS",
+    following: "mob",
+    level: 27,
+    grade: "Little Warrior",
+    title: "Vilain😈",
+    card: "???",
+    stuff: "???",
+    pocket: "250.000🪙",
+    plays: 21,
+    wins: 17,
+    losses: 3,
+    draws: 1,
+    exp: "17.500 EXP",
+    image: "https://i.imgur.com/5AiwHAh.jpeg" // Lien vers l'image de Hells
+},
+
+    "mz": {
+    player: "MZ",
+    following: "mz",
+    level: 10,
+    grade: "Little Warrior",
+    title: "???",
+    card: "???",
+    stuff: "Bâton Frieren",
+    pocket: "250.000🪙",
+    plays: 3,
+    wins: 0,
+    losses: 3,
+    draws: 0,
+    exp: "5.300 EXP",
+    image: "https://i.imgur.com/k5imlNH.jpeg" // Lien vers l'image de MZ
+},
+
+    "loneT": {
+    player: "TEMPEST",
+    following: "loneT",
+    level: 29,
+    grade: "???",
+    title: "Impératrice👸🏼",
+    card: "???",
+    stuff: "Katana Limule",
+    pocket: "500.000🪙",
+    plays: 30,
+    wins: 24,
+    losses: 5,
+    draws: 1,
+    exp: "19.500 EXP",
+    image: "https://i.imgur.com/nI6lzMb.jpeg" // Lien vers l'image de TEMPEST
+},
+
+    "desk": {
+    player: "RUGER",
+    following: "desk",
+    level: 30,
+    grade: "Little Warrior",
+    title: "???",
+    card: "???",
+    stuff: "Kusanagi Sasuke",
+    pocket: "800.000🪙",
+    plays: 16,
+    wins: 3,
+    losses: 13,
+    draws: 0,
+    exp: "20.500 EXP",
+    image: "https://i.imgur.com/PxcUJAp.jpeg" // Lien vers l'image de RUGER
+}
+
+
 
   
     // Ajoute d'autres personnages ici avec leurs images
