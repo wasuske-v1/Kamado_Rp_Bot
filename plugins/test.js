@@ -1,5 +1,5 @@
-import pkg from "@whiskeysockets/baileys";
-const { proto, generateWAMessageFromContent, generateWAMessageContent } = pkg;
+
+const { proto, generateWAMessageFromContent, generateWAMessageContent } = require('@whiskeysockets/baileys');
 const { cmd } = require('../command');
 
 cmd({
