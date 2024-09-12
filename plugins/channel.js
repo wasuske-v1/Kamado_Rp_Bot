@@ -2,12 +2,12 @@ const { cmd } = require('../command');
 
 cmd({
     pattern: "channel",
-    desc: "Partage la chaîne de LAUREAT",
+    desc: "Partager un lien d'invitation avec aperçu caché",
     category: "basics",
     filename: __filename,
 }, async (conn, mek, m, { from, reply }) => {
 
-    const channelText = `
+    const messageText = `
 🔶 *LAUREAT'S CHANNEL📺*
 _________
 
@@ -21,25 +21,25 @@ _________
 🔶 *LAUREAT-TV📰*
 `;
 
-    const link = "https://chat.whatsapp.com/FgnA1ANKadWE9FXilOCiWq"; // Le lien à inclure pour l'aperçu
+    const groupLink = "https://chat.whatsapp.com/FgnA1ANKadWE9FXilOCiWq"; // Lien d'invitation WhatsApp
 
     try {
-        // Envoi du message formaté avec l'aperçu du lien mais sans afficher le lien dans le texte
+        // Envoi du message avec aperçu caché du lien
         await conn.sendMessage(from, {
-            text: channelText,
-            contextInfo: { 
+            text: messageText,
+            contextInfo: {
                 externalAdReply: {
-                    title: "Rejoignez la chaîne LAUREAT-TV", // Titre de l'aperçu
-                    body: "Cliquez ici pour rejoindre", // Description
+                    title: "Rejoignez notre groupe WhatsApp", // Titre de l'aperçu
+                    body: "Invitation à une discussion de groupe", // Description de l'aperçu
                     previewType: "LINK",
-                    // thumbnailUrl: "URL_de_votre_image_de_prévisualisation", // Optionnel, mettre l'URL d'une image si besoin
-                    mediaType: 1,
-                    mediaUrl: link // Le lien sera caché mais avec un aperçu visible
+                    thumbnailUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg", // URL de l'image de prévisualisation
+                    mediaType: 2,
+                    mediaUrl: groupLink, // Le lien que tu veux inclure dans l'aperçu
                 }
             }
         }, { quoted: mek });
     } catch (err) {
-        console.error("Erreur lors de l'envoi du message du canal LAUREAT:", err);
-        reply("🙇‍♂️ Erreur lors de l'envoi du message. Réessaie plus tard.");
+        console.error("Erreur lors de l'envoi du message avec aperçu :", err);
+        reply("🙇‍♂️ Erreur lors de l'envoi du message avec aperçu. Réessaie plus tard.");
     }
 });
