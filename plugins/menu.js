@@ -34,24 +34,24 @@ menu[commands[i].category] += `${config.PREFIX}${commands[i].pattern}\n`;
 │Commands : ${commands.length}
 │Developer : Raizen DArki Linkid && Wasuke KAMADO
 ╰━━━━━━━━━━━━━❒
-HELLO THIS IS D.E.S.K-MD
-━━━━━━━━━━━━━❒        
-©LAUREAT-BOT
-━━━━━━━━━━━━❒
+ HELLO THIS IS D.E.S.K-MD
+╰━━━━━━━━━━━━━❒        
+ ©LAUREAT-BOT
+╰━━━━━━━━━━━━━❒
 
 > *BASICS* 🔶
-${menu.basics}
-
+ ${menu.basics}
+╰━━━━━━━━━━━━━❒
 > *ADVENTURE* 🎮
-${menu.adventure}
-
+ ${menu.adventure}
+╰━━━━━━━━━━━━━❒
 > *STORY* 🎥
-${menu.story}
-
+ ${menu.story}
+╰━━━━━━━━━━━━━❒
 > *PROFILE* 👤
-${menu.profile}
-
-POWERED BY RAIZEN_LINKID ❄️
+ ${menu.profile}
+╰━━━━━━━━━━━━━❒
+POWERED BY RAIZEN_LINKID❄️
         `;
 
         // Envoyer le menu en message
