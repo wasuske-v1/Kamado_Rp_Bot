@@ -2,7 +2,7 @@ const { cmd } = require('../command');
 
 // Dictionnaire des profils de joueurs avec images
 const profils = {
-    "arthurL": {
+    "arthur_l": {
         player: "LEYWIN",
         following: "arthurL",
         level: 29,
@@ -18,7 +18,7 @@ const profils = {
         exp: "19.500 EXP",
         image: "https://i.imgur.com/1hcoGk7.jpeg" // Lien vers l'image d'Arthur
     },
-    "arthurB": {
+    "arthur_b": {
     player: "NAVA",
     following: "arthurB",
     level: 21,
@@ -239,7 +239,7 @@ const profils = {
     image: "https://i.imgur.com/aScHiq0.jpeg" // Lien vers l'image de Wado
 },
 
-    "loneA": {
+    "lone_a": {
     player: "ATLAS",
     following: "loneA",
     level: 29,
@@ -324,7 +324,7 @@ const profils = {
     image: "https://i.imgur.com/k5imlNH.jpeg" // Lien vers l'image de MZ
 },
 
-    "loneT": {
+    "lone_t": {
     player: "TEMPEST",
     following: "loneT",
     level: 29,
