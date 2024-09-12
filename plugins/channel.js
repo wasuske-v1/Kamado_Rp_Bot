@@ -8,7 +8,7 @@ cmd({
 },
 async (conn, mek, m, { from, reply, isOwner }) => {
 
-    const channelText = 
+    const channelText = `
 *🔶 LAUREAT'S CHANNEL📺*
 *_________*
 
@@ -20,7 +20,7 @@ async (conn, mek, m, { from, reply, isOwner }) => {
 *@starkproduction🔸*
 *_________*
        *🔶 LAUREAT-TV📰*
-;
+`;
 
     try {
         // Envoi du message formaté sans image
