@@ -32,7 +32,7 @@ _________
                     title: "Rejoignez notre groupe WhatsApp", // Titre de l'aperçu
                     body: "Invitation à une discussion de groupe", // Description de l'aperçu
                     previewType: "LINK",
-                    thumbnailUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg", // URL de l'image de prévisualisation
+                    thumbnailUrl: "https://i.imgur.com/9dH1Llt.jpeg", // URL de l'image de prévisualisation
                     mediaType: 2,
                     mediaUrl: groupLink, // Le lien que tu veux inclure dans l'aperçu
                 }
