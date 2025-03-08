@@ -10,15 +10,10 @@ cmd({
 async (conn, mek, m, { from, reply, isOwner }) => {
 
     const infoText = `
-*🎙️ INFO-LAUREAT🔶*
-*═════════════════*
-*💬 [ ]:*
-*▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓*
-
-   *🔶LAUREAT-GAMING🎮*
+SORRY BRO...😓(ECHEC)
 `;
 
-    const imageUrl = 'https://i.imgur.com/NBYjSbe.jpeg'; // Remplace par ton image ou config.ALIVE_IMG
+    const imageUrl = 'https://files.catbox.moe/e0pq16.jpg'; // Remplace par ton image ou config.ALIVE_IMG
 
     try {
         // Envoi de l'image avec la légende
